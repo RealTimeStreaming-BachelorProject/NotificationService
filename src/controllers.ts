@@ -12,6 +12,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+export interface IResponseJsonBody {
+  status: number;
+  message: string | object;
+}
+
 export interface IPackageUpdateRequest extends Request {
   body: {
     packageID: string;
@@ -42,13 +47,18 @@ export function registerControllers(app: Express) {
       transporter.sendMail(mailOptions, (error, _) => {
         if (error) throw error;
       });
-      res.status(200).json({
-          status: 200,
-          message: "Package update sent"
-      });
+      const response: IResponseJsonBody = {
+        status: 200,
+        message: "Package update sent",
+      };
+      res.status(200).json(response);
     } catch (error) {
       logger.error(error);
-      res.status(200).json();
+      const response: IResponseJsonBody = {
+        status: 500,
+        message: "Server error, please try again later",
+      };
+      res.status(500).json(response);
     }
   });
 }
