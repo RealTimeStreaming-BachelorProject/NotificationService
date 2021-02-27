@@ -43,22 +43,29 @@ export function registerControllers(app: Express) {
         new Date(updateDate).toDateString()
       ),
     };
-    try {
-      transporter.sendMail(mailOptions, (error, _) => {
-        if (error) throw error;
-      });
-      const response: IResponseJsonBody = {
-        status: 200,
-        message: "Package update sent",
-      };
-      res.status(200).json(response);
-    } catch (error) {
-      logger.error(error);
-      const response: IResponseJsonBody = {
-        status: 500,
-        message: "Server error, please try again later",
-      };
-      res.status(500).json(response);
-    }
+    transporter.sendMail(mailOptions, (error, _) => {
+      try {
+        if (error) {
+          const response: IResponseJsonBody = {
+            status: 400,
+            message: "Could not send email. Check receiver email",
+          };
+          res.status(400).json(response);
+          return;
+        }
+        const response: IResponseJsonBody = {
+          status: 200,
+          message: "Package update email sent",
+        };
+        res.status(200).json(response);
+      } catch (error) {
+        logger.error(error);
+        const response: IResponseJsonBody = {
+          status: 500,
+          message: "Server error, please try again later",
+        };
+        res.status(500).json(response);
+      }
+    });
   });
 }
