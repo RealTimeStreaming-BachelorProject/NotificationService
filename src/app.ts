@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PACKAGE_SERVICE_PORT ?? 10001;
+const PORT = process.env.NOTIFICATION_SERVICE_PORT ?? 10001;
 
 (async () => {
   registerControllers(app);

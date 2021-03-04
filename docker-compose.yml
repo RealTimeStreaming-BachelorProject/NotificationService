@@ -2,16 +2,9 @@ version: "3"
 
 services:
   notificationservice:
-    build:
-      context: ./
-      dockerfile: dockerfile.dev
-    container_name: packageservice-dev
-    environment:
-      CASSANDRA_NODES: '["cassandra1", "cassandra2"]'
-      CASSANDRA_LOCAL_DATACENTER: "Denmark"
-      CASSANDRA_KEYSPACE: "PackageService"
-      PACKAGE_SERVICE_PORT: 6000
+    image: omvk97/notificationservice
+    container_name: notificationservice
+    env_file:
+      - .env
     ports:
-      - 6000:6000
-    volumes:
-      - ./src:/opt/app/src/ # for dev purposes
+      - 10001:10001

@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  notificationservice:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    container_name: notificationservice
+    env_file:
+      - .env.dev
+    ports:
+      - 10002:10002
+    volumes:
+      - ./src:/opt/app/src/ # for dev purposes

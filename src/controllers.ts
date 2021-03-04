@@ -48,7 +48,7 @@ export function registerControllers(app: Express) {
         if (error) {
           const response: IResponseJsonBody = {
             status: 400,
-            message: "Could not send email. Check receiver email",
+            message: error.message,
           };
           res.status(400).json(response);
           return;
