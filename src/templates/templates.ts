@@ -434,7 +434,7 @@ export function packageUpdate(
                                   <table cellpadding="0" cellspacing="0" border="0" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
                                     <tbody><tr>
                                       <td style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
-                                        <img alt="carrier-logo" height="auto" src="https://www.freelogodesign.org/file/app/client/thumb/670eb6a2-3a2e-4fa9-bcb2-1e5969212779_200x200.png?1614423508080" width="100" style="border-style:none;display:block;outline-style:none;text-decoration:none;height:auto;border-width:0;line-height:100%;margin-left: auto;margin-right: auto;/* width: 50%; */">
+                                        <img alt="carrier-logo" height="auto" src="https://api.freelogodesign.org/files/ebd7f3acd90c4b6ab9a701abf62d3d43/thumb/logo_200x200.png?v=637599412150000000" width="100" style="border-style:none;display:block;outline-style:none;text-decoration:none;height:auto;border-width:0;line-height:100%;margin-left: auto;margin-right: auto;/* width: 50%; */">
                                       </td>
                                     </tr>
                                   </tbody></table>

@@ -2,6 +2,7 @@ import logger from "./util/logger";
 import { Express, Response, Request } from "express";
 import nodemailer from "nodemailer";
 import { packageUpdate } from "./templates/templates";
+
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -33,6 +34,7 @@ export function registerControllers(app: Express) {
       res.status(400).send("One or more body parameters invalid");
       return;
     }
+    
     var mailOptions = {
       from: "'Notification Service' <notificationservicebachelor@gmail.com>",
       to: receiverEmail,
